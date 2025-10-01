@@ -9,8 +9,8 @@ A classic Checkers (Draughts) game implementation in Python with a graphical use
 - **Game Rules**: 
   - Standard checkers movement (diagonal forward moves for regular pieces)
   - Multiple jump captures are supported
-  - Pieces are promoted to kings when reaching the opposite end
-  - Kings can move in all diagonal directions
+  - Pieces are promoted to queens when reaching the opposite end
+  - Queens can move in all diagonal directions
 - **Visual Feedback**: See possible moves highlighted when selecting a piece
 
 ## Requirements
@@ -30,11 +30,6 @@ cd Checkers
 ```bash
 python --version
 ```
-
-3. Tkinter should be included with your Python installation. If not, install it:
-   - **Ubuntu/Debian**: `sudo apt-get install python3-tk`
-   - **macOS**: Tkinter is included with Python
-   - **Windows**: Tkinter is included with Python
 
 ## Usage
 
@@ -57,8 +52,8 @@ python main.py
    - Regular pieces move diagonally forward one square
    - Capture opponent pieces by jumping over them
    - Multiple captures must be made if available
-   - Pieces reaching the opposite end are promoted to kings (shown with a white dot)
-   - Kings can move diagonally in all directions
+   - Pieces reaching the opposite end are promoted to queens (shown with a white dot)
+   - Queens can move diagonally in all directions
 
 4. **Winning**: The game ends when one player has no legal moves left or no pieces remaining.
 
@@ -94,27 +89,12 @@ Checkers/
   - Board position (center control)
   - Promotion potential
   - Available moves
-- Searches ahead 6 moves deep by default
+- Configurable search depth
 
 ## AI Strategy
 
 The AI opponent uses a minimax algorithm with the following evaluation criteria:
 - **Piece Values**: Regular pieces (1 point), Kings (3 points)
-- **Positional Advantage**: Center squares provide bonus value
-- **Promotion Proximity**: Pieces closer to promotion are valued higher
-- **Mobility**: Number of available legal moves
-
-## Contributing
-
-Contributions are welcome! Feel free to:
-- Report bugs
-- Suggest new features
-- Submit pull requests
-
-## License
-
-This project is open source and available for educational purposes.
-
-## Acknowledgments
-
-Built with Python and Tkinter, implementing classic checkers rules with an AI opponent for single-player gameplay.
+- **Positional Advantage**: Center squares provide bonus value (+0.5 points)
+- **Promotion Proximity**: Pieces closer to promotion are valued higher (+0.75 points)
+- **Mobility**: Number of available legal moves - the position evaluation takes into account the difference in the number of legal moves (weighted by the factor of 0.1)
