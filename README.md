@@ -2,6 +2,10 @@
 
 A classic Checkers (Draughts) game implementation in Python with a graphical user interface and an AI opponent.
 
+## Demo
+
+Watch a quick demo of the game in action: [YouTube Short](https://youtube.com/shorts/Armk7SeV0G8?feature=share)
+
 ## Features
 
 - **Interactive GUI**: Play checkers with an intuitive graphical interface built using Tkinter
